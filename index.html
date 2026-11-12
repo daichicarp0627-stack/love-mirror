@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171326">
+<title>LOVE MIRROR — あなたの恋愛心理を映し出す</title>
+<style>
+:root{--bg:#100e1b;--panel:#1b1829;--panel2:#242038;--ink:#fff8fb;--muted:#c2b8cc;--pink:#f08ab5;--violet:#b8a0ff;--line:#393149;--gold:#f3d5a3}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse at 15% 0%,#382044 0,transparent 42%),radial-gradient(ellipse at 90% 35%,#22284b 0,transparent 35%),var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer}.wrap{width:min(100% - 32px,760px);margin:auto;padding:28px 0 56px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:42px}.brand{font-weight:900;letter-spacing:.13em;font-size:18px}.brand span{color:var(--pink)}.tag{border:1px solid #6e5574;border-radius:999px;padding:6px 11px;color:#e9c6e0;font-size:11px;letter-spacing:.08em}
+.hero{text-align:center;padding:18px 4px 30px}.eyebrow{color:var(--pink);font-size:12px;letter-spacing:.22em;font-weight:800}.hero h1{font-size:clamp(34px,8vw,58px);line-height:1.13;letter-spacing:-.04em;margin:16px 0}.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ffc1d9,#c4adff);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{color:var(--muted);line-height:1.9;font-size:14px;max-width:500px;margin:0 auto}.orb{width:118px;height:118px;margin:28px auto 24px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#ffd4e6,#e98db9 28%,#76518c 65%,#29213c 100%);box-shadow:0 0 70px #e68cb955,inset -12px -15px 25px #20162d88;font-size:44px}
+.panel{background:linear-gradient(145deg,#211c31ed,#171524f2);border:1px solid #4a3c56;border-radius:24px;padding:clamp(20px,5vw,34px);box-shadow:0 24px 80px #0005}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:12px}.progress{height:5px;border-radius:9px;background:#393149;overflow:hidden;margin-bottom:28px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--violet));transition:width .35s}
+.chapter{color:var(--pink);font-size:11px;letter-spacing:.15em;font-weight:800}.scene{font-size:clamp(21px,5vw,29px);line-height:1.5;margin:10px 0 12px}.story{color:#d3c9d9;line-height:1.9;font-size:14px;white-space:pre-line;margin-bottom:24px}.options{display:grid;gap:10px}.option{width:100%;text-align:left;color:var(--ink);background:#28233a;border:1px solid #49405a;border-radius:15px;padding:15px 16px;display:flex;gap:13px;align-items:flex-start;transition:.2s}.option:hover,.option:focus{border-color:var(--pink);background:#34283e;transform:translateY(-1px);outline:none}.letter{flex:0 0 28px;height:28px;border-radius:9px;background:#49344c;color:#ffc3dd;display:grid;place-items:center;font-weight:800;font-size:12px}.opttext{font-size:14px;line-height:1.65}.opttext small{display:block;color:#bdb1c7;font-size:12px;margin-top:3px}
+.btn{border:0;border-radius:999px;padding:14px 23px;background:linear-gradient(100deg,#f08ab5,#b99eff);color:#211526;font-weight:900;box-shadow:0 8px 24px #d77ca644}.btn:disabled{opacity:.4;cursor:not-allowed}.btn.secondary{background:#302a40;color:#f8eefa;border:1px solid #514760;box-shadow:none}.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}.hidden{display:none!important}
+.result-kicker{color:var(--pink);font-size:12px;letter-spacing:.15em;font-weight:800}.result-title{font-size:clamp(28px,7vw,42px);line-height:1.25;margin:10px 0}.result-copy{color:#d8cedf;line-height:1.9;font-size:14px}.scoregrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0}.score{background:#28233a;border:1px solid #49405a;border-radius:15px;padding:15px}.score b{display:block;font-size:25px;color:#ffc0dc}.score span{font-size:11px;color:var(--muted)}.insight{border-left:3px solid var(--pink);padding:3px 0 3px 14px;margin:18px 0;color:#e8ddea;line-height:1.8;font-size:14px}.note{font-size:11px;color:#a99eb5;line-height:1.7;margin-top:18px}.footer{text-align:center;color:#84798f;font-size:11px;margin-top:28px}.pill{display:inline-block;border:1px solid #59465f;border-radius:999px;padding:6px 10px;color:#e9c6e0;font-size:11px;margin:3px}
+@media(max-width:480px){.wrap{width:min(100% - 22px,760px);padding-top:18px}.top{margin-bottom:28px}.panel{border-radius:20px}.scoregrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="brand">LOVE <span>♥</span> MIRROR</div><div class="tag">YOUR LOVE, REFLECTED</div></header>
+  <main>
+    <section id="home" class="hero">
+      <div class="eyebrow">A LITTLE JOURNEY INTO YOUR HEART</div>
+      <div class="orb">♡</div>
+      <h1>あなたの選択が、<br><em>恋愛心理を映し出す。</em></h1>
+      <p class="lead">もし、あの場面で違う選択をしていたら？<br>物語を進めながら、自分でも気づいていない恋愛観を見つけよう。</p>
+      <div class="actions"><button class="btn" id="start">恋愛シミュレーションを始める　→</button></div>
+      <p class="note">全5問・約3分／登録不要・無料</p>
+    </section>
+    <section id="game" class="panel hidden" aria-live="polite">
+      <div class="meta"><span id="chapterLabel">CHAPTER 01</span><span id="count">1 / 5</span></div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="chapter" id="chapter"></div>
+      <h2 class="scene" id="question"></h2>
+      <p class="story" id="story"></p>
+      <div class="options" id="options"></div>
+      <div class="actions"><button class="btn secondary" id="back">ひとつ戻る</button></div>
+    </section>
+    <section id="result" class="panel hidden" aria-live="polite">
+      <div class="result-kicker">YOUR LOVE MIRROR RESULT</div>
+      <h2 class="result-title" id="resultTitle"></h2>
+      <p class="result-copy" id="resultIntro"></p>
+      <div class="scoregrid" id="traits"></div>
+      <div class="insight" id="strength"></div>
+      <div class="insight" id="challenge"></div>
+      <div id="keywords"></div>
+      <p class="note">この結果は今回の選択から作成したエンタメ診断です。心理検査や医学的な評価ではありません。恋愛の正解を決めるものではなく、自分の価値観を考えるきっかけとして楽しんでください。</p>
+      <div class="actions"><button class="btn" id="restart">もう一度遊ぶ ↻</button><button class="btn secondary" id="share">結果をコピー</button></div>
+    </section>
+  </main>
+  <div class="footer">LOVE MIRROR · あなたらしい恋愛を見つける小さな旅</div>
+</div>
+<script>
+const questions = [
+ {chapter:"CHAPTER 01 · THE FIRST SIGNAL",title:"気になる人から、相談された。",story:"マッチングアプリで出会った相手。2回デートをして、あなたはかなり惹かれている。ある夜、相手から「別の人にも食事に誘われていて、どうしたらいいかな？」と相談された。",opts:[
+  ["A","余裕を見せる","「いいやん！行ってきたら？笑」"],
+  ["B","好意を伝える","「正直ちょっと嫌やな。俺は結構好きやし」"],
+  ["C","相手の気持ちを探る","「その人のこと、気になってるん？」"],
+  ["D","次の約束を提案する","「じゃあ俺ともデートして。もっと楽しませるで！」"]
+ ]},
+ {chapter:"CHAPTER 02 · THE RIVAL",title:"ライバルから告白されたらしい。",story:"2回目のデートも楽しく終わった数日後、相手から連絡が来た。「実は別の人から告白されちゃった。まだ返事はしてないんだけど……」あなたは相手のことが好きだ。",opts:[
+  ["A","返事を待つ","「自分の気持ちが決まるまで待ってるよ」"],
+  ["B","真剣な気持ちを伝える","「俺は付き合いたいと思ってる。真剣に考えてほしい」"],
+  ["C","身を引く","「そこまで好きなら、その人と付き合ったらいいと思う」"],
+  ["D","自分の意思を示す","「誰かと比べられるためじゃなく、ちゃんと向き合いたい」"]
+ ]},
+ {chapter:"CHAPTER 03 · THE PROMISE",title:"「私を大切にしてくれる？」",story:"相手は「あなたといると自然体でいられる。でも、まだ少し迷っている」と話す。そして最後に「もし私があなたを選んだら、ちゃんと大切にしてくれる？」と尋ねた。",opts:[
+  ["A","安心させる","「もちろん。大切にしたいと思ってるよ」"],
+  ["B","対等な関係を伝える","「もちろん。でも俺も大切にされたい。お互いそう思える関係がいいな」"],
+  ["C","本音を確認する","「俺を選びたいと思ってくれてる？それともまだ迷ってる？」"],
+  ["D","焦らず考える","「急がなくていいよ。二人でちゃんと考えよう」"]
+ ]},
+ {chapter:"CHAPTER 04 · THE YES",title:"「私たち、付き合ってみない？」",story:"夜景の見える場所で、相手から告白された。ただし「仕事も自分の時間も大切にしたいから、毎日連絡したり頻繁に会ったりはできないと思う」と続けた。",opts:[
+  ["A","すぐに受け入れる","「もちろん！付き合おう！」"],
+  ["B","無理のない関係を提案する","「俺も付き合いたい。お互い無理せず大切にできる関係にしよう」"],
+  ["C","自分の希望も伝える","「付き合いたい。たまには二人の時間もちゃんと作りたいな」"],
+  ["D","理想を話し合う","「好きだよ。付き合う前にお互いの理想も話しておきたい」"]
+ ]},
+ {chapter:"CHAPTER 05 · THE REAL FEELING",title:"「今の関係で、あなたは幸せ？」",story:"付き合って2か月。相手は仕事が忙しく、以前より会える回数が減った。ある夜、相手から「最近、私ばかり自分の時間を優先してる気がする。あなたは本当に今の関係で幸せ？」と聞かれた。",opts:[
+  ["A","相手を安心させる","「大丈夫！仕事を頑張ってるの知ってるし、気にしないで」"],
+  ["B","寂しさも正直に伝える","「寂しいときもあるけど、一緒にいるときが幸せ。たまには会いたいな」"],
+  ["C","改善を相談する","「俺も寂しいし、もう少し二人の時間を作る方法を考えたい」"],
+  ["D","一緒に考える","「俺は好きだから大丈夫。これからどうしたいか二人で考えよう」"]
+ ]}
+];
+const $=id=>document.getElementById(id); let index=0, answers=[];
+const dims={honesty:0,care:0,balance:0,initiative:0};
+const weights=[
+ [{initiative:2},{honesty:2,initiative:1},{care:1},{initiative:2,honesty:1}],
+ [{care:1},{honesty:2,initiative:1},{care:1},{balance:1,honesty:1}],
+ [{care:2},{balance:2,honesty:1},{honesty:2},{care:1,balance:1}],
+ [{initiative:1},{balance:2},{honesty:1,balance:1},{balance:2}],
+ [{care:1},{honesty:2,balance:2},{balance:2,honesty:1},{balance:1,care:1}]
+];
+function render(){
+ const q=questions[index]; $("chapterLabel").textContent=`CHAPTER 0${index+1}`;$("count").textContent=`${index+1} / 5`;$("bar").style.width=`${index*20}%`;
+ $("chapter").textContent=q.chapter;$("question").textContent=q.title;$("story").textContent=q.story;$("options").innerHTML="";
+ q.opts.forEach((o,i)=>{const b=document.createElement("button");b.className="option";b.innerHTML=`<span class="letter">${o[0]}</span><span class="opttext"><strong>${o[1]}</strong><small>${o[2]}</small></span>`;b.onclick=()=>choose(i);$("options").appendChild(b)});
+ $("back").disabled=index===0;
+}
+function choose(i){answers[index]=i;if(index<4){index++;render()}else showResult()}
+function showResult(){
+ $("game").classList.add("hidden");$("result").classList.remove("hidden");$("bar").style.width="100%";
+ const s={honesty:0,care:0,balance:0,initiative:0};answers.forEach((a,qi)=>Object.entries(weights[qi][a]).forEach(([k,v])=>s[k]+=v));
+ const max={honesty:8,care:6,balance:7,initiative:5};const pct=k=>Math.min(100,Math.round(s[k]/max[k]*100));
+ const scores=Object.entries(s).sort((a,b)=>b[1]-a[1]);let type,intro,strength,challenge;
+ if(s.balance>=5&&s.honesty>=4){type="対等な愛情を育てるタイプ";intro="自分の気持ちも相手の事情も大切にしながら、二人で心地よい関係を作ろうとする傾向があります。";strength="強み：本音を共有し、片方だけが我慢しない関係を目指せること。";challenge="気をつけたいこと：相手を尊重するあまり、自分の希望を後回しにしないこと。"}
+ else if(s.care>=4){type="思いやりでつながるタイプ";intro="相手の気持ちや安心感を大切にし、愛情を行動で示そうとする傾向があります。";strength="強み：相手の立場を想像し、安心できる関係を作ろうとすること。";challenge="気をつけたいこと：相手を優先しすぎず、自分の寂しさや希望も伝えること。"}
+ else if(s.initiative>=4){type="まっすぐ行動するタイプ";intro="気持ちを行動に移し、関係を前に進めようとする傾向があります。";strength="強み：曖昧なままにせず、自分からきっかけを作れること。";challenge="気をつけたいこと：相手のペースや返事を待つ余白も大切にすること。"}
+ else {type="気持ちを確かめながら進むタイプ";intro="相手の反応を見ながら、自分にとって納得できる関係を慎重に選ぼうとする傾向があります。";strength="強み：状況を見極め、軽率に決めつけないこと。";challenge="気をつけたいこと：考えすぎて本音を伝えるタイミングを逃さないこと。"}
+ $("resultTitle").textContent=type;$("resultIntro").textContent=intro;$("strength").textContent=strength;$("challenge").textContent=challenge;
+ const labels={honesty:"本音を伝える力",care:"思いやり",balance:"対等さの重視",initiative:"行動力"};
+ $("traits").innerHTML=Object.keys(labels).map(k=>`<div class="score"><b>${pct(k)}%</b><span>${labels[k]}</span></div>`).join("");
+ $("keywords").innerHTML=["今回の選択からの傾向","正解・不正解はありません","自分の価値観を振り返るヒント"].map(x=>`<span class="pill">${x}</span>`).join("");
+}
+$("start").onclick=()=>{$("home").classList.add("hidden");$("result").classList.add("hidden");$("game").classList.remove("hidden");index=0;answers=[];render();window.scrollTo({top:0,behavior:"smooth"})};
+$("back").onclick=()=>{if(index>0){index--;render()}};
+$("restart").onclick=()=>{$("result").classList.add("hidden");$("home").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})};
+$("share").onclick=async()=>{const txt=`LOVE MIRROR診断結果：${$("resultTitle").textContent}\n${$("resultIntro").textContent}\n#LOVEMIRROR`;try{await navigator.clipboard.writeText(txt);$("share").textContent="コピーしました！"}catch(e){$("share").textContent="コピーできませんでした"}};
+</script>
+</body></html>
